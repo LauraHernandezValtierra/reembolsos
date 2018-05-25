@@ -1,0 +1,106 @@
+
+<form name='forma' id='forma' method='post' action='solicitud.php'  enctype='multipart/form-data' >
+<h1 align='center'>DATOS FISCALES</h1>
+<br><br>
+<span style='background: #A31100; font-size:14px; color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 7px 5px 5px 7px;padding: 3px 5px;'>
+	Su registro no cuenta con datos fiscales cargados, para continuar con la solicitud debe llenar el siguiente formulario y adjuntar su cédula fiscal en formato PDF.
+</span>
+<br><br>
+<table border='0' width='70%' align='center'>
+	<tr>
+		<td width='15%' height='10px' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			RAZÓN FISCAL:
+		</td>
+		<td width='44%'>
+			<input type='text' autocomplete='off' name='vrazon' required style='width:300px'>
+		</td>
+		<td width='20%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			RFC:
+		</td>
+		<td width='21%'>
+			<input type='text' autocomplete='off'  name='rfc' style='width:150px' required minlength='12' maxlength='13' pattern='^[a-zA-Z]{3,4}[\d]{6}[\D|\d]{3}?$' title='Ingrese el RFC con Homoclave (XXXX######XXX)' >
+		</td>
+	</tr>
+	<tr>
+		<td width='15%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			DOMICILIO:
+		</td>
+		<td>
+			<input type='text autocomplete='off' ' name='vdomicilio' required style='width:300px'>
+		</td>
+		<td width='20%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			C.P.:
+		</td>
+		<td>
+			<input type='text' autocomplete='off'  name='vcp' required style='width:150px' minlength='5' pattern='.{5,}' maxlength='5'  onKeyPress='soloNumeros()'>
+		</td>
+	</tr>
+	<tr>
+		<td width='15%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			COLONIA:
+		</td>
+		<td>
+			<input type='text' autocomplete='off'  name='vcolonia'  required style='width:300px'>
+		</td>
+		<td width='20%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			TELÉFONO:
+		</td>
+		<td>
+			<input type='text'  autocomplete='off' name='vtelefono' required style='width:150px' onKeyPress='soloNumeros()'>
+		</td>
+	</tr>
+	<tr>
+		<td width='15%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			ESTADO:
+		</td>
+		<td>
+			<select  id='cestado' name='cestado' onchange='showUser(this.value)'  required> 
+								".$select_."
+			</select>		
+		</td>
+		<td width='20%' align='right' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'>
+			MUNICIPIO:
+		</td>
+		<td>
+			<select name='cmunicipio' id='cmunicipio' required>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td width='15%' rowspan='2' style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;' align='right'>
+			OBSERVACIONES:
+		</td>
+		<td colspan='2' rowspan='5'>
+			<textarea name='observ' id='observ'  style='height:80px;width:400px;max-height:80px;max-width:400px' ><?=$observaciones?></textarea>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	
+	<tr>
+		<td  style='background:rgba(247, 157, 85, 0.77);color: #000;text-shadow: #ccc 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;' align='right'>CÉDULA FISCAL:</td>
+		<td><input type='file' name='archivo[]' id='archivo[]' required title='Ingresar unicamente archivo PDF'></td>
+	</tr>	
+	<tr><td>&nbsp;</td></tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td align='center' valign='middle' colspan='2' id='aceptaD' class='clean-red' ><input  name='validado' id='validado' type='checkbox' onchange='cambiaClase()' required title='Debe aceptar las políticas para continuar' ><label for='validado' style='cursor:pointer;'><strong>Acepto que los datos ingresados son correctos y verídicos</strong></label></td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td colspan='4' align='center'><input type='submit' value='ENVIAR' title='ENVIAR DATOS FISCALES' name='action' id='action'></td>
+	</tr>
+</table>
+							<input type='hidden' name='exped' value='".$cid_expediente."'>
+							<input type='hidden' name='folio' value='".$id_rmbo."'>
+							<input type='hidden' name='nconsolidado' value='".$nconsolidado."'>
+							<input type='hidden' name='tipo' value='".$tipo."'>
+							<input type='hidden' name='tcliente' value='".$tcliente."'>
+							<input type='hidden' name='cid_cliente' value='".$cid_cliente."'>		
+			
+
+</form>

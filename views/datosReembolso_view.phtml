@@ -1,0 +1,125 @@
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h5>Para cualquier duda o aclaración, favor de comunicarse a: reembolsos@megatravel.com.mx</h5>
+				
+			</div>
+			<div class="col-md-10 col-md-offset-2 " align="center">
+				<h5>Bienvenido</h5>
+				<p>Este reembolso fue solicitado el </p>
+			</div>
+		</div>
+<form method='post' name='forma' id='forma' action='index.php'>
+		<div class="row">
+			<div class="col-md-6">
+				<table class="table">
+					<tr>
+						<td>Expediente:</td>
+						<td><?=$cid_expediente?></td>
+					</tr>
+					<tr>
+						<td>Motivo del Reembolso:</td>
+						<td><?=$concepto?></td>
+					</tr>
+					<tr>
+						<td>Pasajero Principal:</td>
+						<td><?=$pax_principal?></td>
+					</tr>
+					<tr>
+						<td>Paquete:</td>
+						<td><?=$paquete?></td>
+					</tr>
+					<tr>
+						<td>Fecha de Salida:</td>
+						<td><?=$fsalida?></td>
+					</tr>
+					<tr>
+						<td>Tipo de Cambio:</td>
+						<td><?=$tc?></td>
+					</tr>
+					<tr>
+						<td>Cantidad en USD:</td>
+						<td><?=$comision_usd?></td>
+					</tr>
+					<tr>
+						<td>Importe Solicitado:</td>
+						<td><?=$comision_mxn?></td>
+					</tr>
+					<tr>
+						<td>Importe en letra:</td>
+						<td><?=convertir($impte_soli,$moneda)?></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="col-md-6">
+				<table class="table">
+					<tr>
+						<th colspan="2">Datos modificables bajo la responsabilidad de quien esté solicitando el reembolso.</th>
+						
+					</tr>
+					<tr>
+						<td>Banco:</td>
+						<td><input type="text" name="" class=" input-sm" placeholder="Banco" value="" required="required"></td>
+					</tr>
+					<tr>
+						<td>Sucursal:</td>
+						<td><input type="text" name="" class="input-sm" placeholder="Sucursal" value=""></td>
+					</tr>
+					<tr>
+						<td>No de Cuenta:</td>
+						<td><input type="text" name="" class=" input-sm" placeholder="No de Cuenta" value="" required="required"></td>
+					</tr>
+					<tr>
+						<td>Clabe:</td>
+						<td><input type="text" name="" class=" input-sm" placeholder="Clabe" value="" required="required"></td>
+					</tr>
+					<tr>
+						<td>Beneficiario:</td>
+						<td><input type="text" name="" class=" input-sm" placeholder="Beneficiario" value="" required="required"></td>
+					</tr>
+					<tr>
+						<td>Correo de Contacto:</td>
+						<td><input type="text" name="" class="input-sm" placeholder="Correo de Contacto:" value="<?=$correo?>" size="30"></td>
+					</tr>
+					
+						<?php
+						if($tcliente=='D'){
+							$Identificación="<tr>
+							<td>Identificación Oficial:</td>
+								<td><input type='file' name='archivo[]' id='archivo[]' required title='Ingresar unicamente archivo PDF (PASAPORTE, INE, CÉDULA PROFESIONAL, ETC.)'></td>
+							</tr>";
+							 echo $Identificación;
+						}
+						?>
+						
+					<tr>
+						<td>Observaciones:</td>
+						<td><textarea class="form-control" rows="2" id="comment"></textarea></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div id='aceptaD' class="divcolor1" ><input type='checkbox'  name='validado' onchange='cambiaClase()' id='validado' required="required" title='Debe aceptar las politicas para continuar' ><label for='validado' style='cursor:pointer;'>
+						Acepto...<a href='https://www.megatravel.com.mx/info/politica-de-privacidad.php' title='aviso' target='_blank'>Aviso de privacidad</a></label>
+						<input type="hidden" name="action" value="Enviar Datos">
+						<input type='hidden' name='secc' value='2'>
+				</div>
+			</div>
+			
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-4">
+				<button type="button" class="btn btn-primary">Primary</button>
+			</div>
+		</div>
+		
+		</form>
+	</div>
+</section>
