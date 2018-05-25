@@ -1,0 +1,68 @@
+	<?
+	?>
+	<form method='post' name='forma' id='forma' action='solicitud_controller.php'>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<h4>Confirme los Datos Ingresados</h4>
+				<table class="table">
+					<tr>
+						<td>Beneficiario:</td>
+						<td><?=$Beneficiario?></td>
+					</tr>
+					<tr>
+						<td>Banco:</td>
+						<td><?=$banco?></td>
+					</tr>
+					<tr>
+						<td>Sucursal:</td>
+						<td><?=$sucursal?></td>
+					</tr>
+					<tr>
+						<td>Cuenta:</td>
+						<td><?=$cuenta?></td>
+					</tr>
+					<tr>
+						<td>Clabe:</td>
+						<td><?=$clabe?></td>
+					</tr>
+					<tr>
+						<td>Correo de Contacto:</td>
+						<td><?=$correo?></td>
+					</tr>
+					<tr>
+				</table>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div id='aceptaD' class="divcolor1" ><input type='checkbox'  name='validado' onchange='cambiaClase()' id='validado' required="required" title='Debe aceptar las politicas para continuar' ><label for='validado' style='cursor:pointer;'>
+						Acepto...<a href='https://www.megatravel.com.mx/info/politica-de-privacidad.php' title='aviso' target='_blank'>Aviso de privacidad</a></label>
+						<input type="hidden" name="action" value="Enviar Datos">
+						<input type='hidden' name='secc' value='2'>
+						<input type='hidden' name='expediente' value='<?=$expediente?>'>
+						<input type='hidden' name='nconsolidado' value='<?=$nconsolidado?>'>
+						<input type='hidden' name='Beneficiario' value='<?=$Beneficiario?>'>
+						<input type='hidden' name='banco' value='<?=$banco?>'>
+						<input type='hidden' name='Sucursal' value='<?=$sucursal?>'>
+						<input type='hidden' name='Cuenta' value='<?=$cuenta?>'>
+						<input type='hidden' name='Clabe' value='<?=$clabe?>'>
+						<input type='hidden' name='Correo' value='<?=$correo?>'>
+						<input type='hidden' name='Observaciones' value='<?=$observacion?>'>
+				</div>
+			</div>
+			
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-2">
+				<input type='button' onClick='javascript:history.back()' style='cursor:pointer;' title='CORREGIR DATOS' value='Corregir'>
+			</div>
+			<div class="col-md-2">
+				<td colspan='4' align='center'><input type='submit' value='Imprimir Solicitud' title='Imprimir Solicitud' name='action' id='action'></td>
+			</div>
+		</div>
+		
+		</form>

@@ -1,18 +1,42 @@
 <?php
-require_once("../controllers/reembolsos_controller.php");
+require_once("../models/reembolsos_model.php");
+require_once("../funciones/funciones.php");
+require_once("../db/db.php");
+$up=new reembolsos_model();
+				$correo 		=  htmlspecialchars(trim(strtoupper($_POST['Correo'])));
+				$banco 			=  htmlspecialchars(trim(strtoupper($_POST['banco'])));
+				$sucursal 		=  htmlspecialchars(trim(strtoupper($_POST['Sucursal'])));
+				$cuenta 		=  $_POST['Cuenta'];
+				$clabe 			=  htmlspecialchars(trim(strtoupper($_POST['Clabe'])));
+				$Beneficiario 	=  htmlspecialchars(trim(strtoupper($_POST['Beneficiario'])));
+				$observacion	=  htmlspecialchars(trim(strtoupper($_POST['Observaciones'])));
 
-$banco=$_POST['banco'];
-$sucursal=$_POST['Sucursal'];
-$cuenta=$_POST['Cuenta'];
-$clabe=$_POST['Clabe'];
-$beneficiario=$_POST['Beneficiario'];
-$correo=$_POST['Correo'];
-$identificacion="";
-if($tcliente=='D'){
-	$identificacion=$_POST['archivo[]'];
-}
+				$proc 			= 'S';
+				$estatus		= 'D';
+				$archivo		= 'N';
+				$identificacion	= 'S';
+				$fproceso		= date('Y-m-d H:i:s');
 
-$observaciones=$_POST['Observaciones'];
+				if($tcliente=='A'){
+					$data=$up->updateReembolsoA($expediente, $nconsolidado, $correo, $banco, $sucursal, $cuenta, $clabe, $Beneficiario, $proc, $estatus, $archivo,$fproceso, $observacion);
+					if($data){
+						$id		= "expe=".$expediente.'&id='.$nconsolidado;
+						require_once('../controllers/generaCarta_controller.php');
+					}else{
+						require_once('../controllers/generaCarta_controller.php');
+					}
+					
+				}elseif($tcliente=='D'){
+					$data=$up->updateReembolsoD($expediente, $nconsolidado, $correo, $banco, $sucursal, $cuenta, $clabe, $Beneficiario, $identificacion, $proc, $estatus, $archivo,$fproceso, $observacion);
+					if($data){
+						$id		= "expe=".$expediente.'&id='.$nconsolidado;
+						header('Location:../controllers/generaCarta_controller.php?'.$id.'');
+					}else{
+						require_once('../controllers/generaCarta_controller.php');
+					}
+				}
+
+
 
 
 

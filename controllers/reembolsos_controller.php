@@ -4,6 +4,7 @@ require_once("../funciones/funciones.php");
 require_once("../db/db.php");
 $cid_expediente=$_POST['cid_expediente'];
 $nconsolidado=$_POST['nconsolidado'];
+
 $per=new reembolsos_model();
 		$datos=$per->consulta_reembolso($cid_expediente, $nconsolidado);
 	 		if (isset($datos)) {
@@ -43,6 +44,10 @@ $per=new reembolsos_model();
 					$n_fiscales		= $datos['n_fiscales'];
 					$id_rmbo		= $datos['id_rmbo'];
 
-}
+				
+					
+			
 
+}
+echo "hola2";
 ?>

@@ -1,15 +1,4 @@
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h5>Para cualquier duda o aclaración, favor de comunicarse a: reembolsos@megatravel.com.mx</h5>
-				
-			</div>
-			<div class="col-md-10 col-md-offset-2 " align="center">
-				<h5>Bienvenido</h5>
-				<p>Este reembolso fue solicitado el </p>
-			</div>
-		</div>
+
 <form method='post' name='forma' id='forma' action='controllers/solicitud_controller.php'>
 		<div class="row">
 			<div class="col-md-6">
@@ -69,7 +58,7 @@
 					</tr>
 					<tr>
 						<td>No de Cuenta:</td>
-						<td><input type="number" name="" class=" input-sm" placeholder="No de Cuenta" value="Cuenta" required="required"></td>
+						<td><input type="number" name="Cuenta" class=" input-sm" placeholder="No de Cuenta" value="" required="required"></td>
 					</tr>
 					<tr>
 						<td>Clabe:</td>
@@ -86,11 +75,11 @@
 					
 						<?php
 						if($tcliente=='D'){
-							$Identificación="<tr>
+							echo "<tr>
 							<td>Identificación Oficial:</td>
 								<td><input type='file' name='archivo[]' id='archivo[]' required title='Ingresar unicamente archivo PDF (PASAPORTE, INE, CÉDULA PROFESIONAL, ETC.)'></td>
 							</tr>";
-							 echo $Identificación;
+							 
 						}
 						?>
 						
@@ -107,9 +96,9 @@
 				<div id='aceptaD' class="divcolor1" ><input type='checkbox'  name='validado' onchange='cambiaClase()' id='validado' required="required" title='Debe aceptar las politicas para continuar' ><label for='validado' style='cursor:pointer;'>
 						Acepto...<a href='https://www.megatravel.com.mx/info/politica-de-privacidad.php' title='aviso' target='_blank'>Aviso de privacidad</a></label>
 						<input type="hidden" name="action" value="Enviar Datos">
-						<input type='hidden' name='secc' value='2'>
-						<input type='hidden' name='cid_expediente' value='<?$cid_expediente?>'>
-						<input type='hidden' name='nconsolidado' value='<?$nconsolidado?>'>
+						<input type='hidden' name='secc' value='1'>
+						<input type='hidden' name='expediente' value='<?=$cid_expediente?>'>
+						<input type='hidden' name='nconsolidado' value='<?=$nconsolidado?>'>
 				</div>
 			</div>
 			

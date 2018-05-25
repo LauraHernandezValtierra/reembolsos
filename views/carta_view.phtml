@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title><?php echo $cid_solicitud?></title>
+</head>
+<body onLoad="javascript:print()">
+<!--<body>-->
+
+<table width="95%" align="center" cellspacing="0" style="font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;">
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>	
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr>
+		<td width="28%" ></td>
+		<td align="right" colspan="5" style="font: small-caps 125%/100% serif;"><?php echo $fecha; ?></td>
+	</tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr>
+		<td colspan="6" style="font: small-caps 125%/100% serif;"> Atención: <?php echo $ejecutivo; ?></td>
+	</tr>
+	<tr>
+            <!--<td colspan="6" style="font: small-caps 125%/100% serif;"> Mega Travel Operadora, S.A de C.V </td> 27-02--18 cambio en nombre de empresa -->
+            <td colspan="6" style="font: small-caps 125%/100% serif;"><?php echo $nom_empresa; ?></td>
+	</tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr>
+		<td colspan="6" align="justify" style="font-size:12px; color:#003366;font: small-caps 125%/100% serif;"> Por este medio solicito el reembolso por concepto de <span style="color:#666; text-decoration:underline;"> <?php echo $concepto;?></span> de la reservación de los pasajeros que a continuación detallo:</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>EXPEDIENTE:</td>
+		<td width="72%" height="20" colspan='4' ><?php echo $cid_expediente;?></td>
+	</tr>
+	<tr>
+		<td height="20"  align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>NOMBRE DE PAX PRINCIPAL:</td>
+		<td height="20" colspan="4"><?php echo $pax_principal;?></td>
+	</tr>
+	<tr>
+		<td height="20"  align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>PAQUETE:</td>
+		<td height="20" colspan="4"><?php echo $paquete;?></td>
+	</tr>
+	<tr>
+		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>FECHA DE SALIDA:</td>
+		<td height="20"  colspan="4"><?php echo ddmmmaaaa22($fsalida).'.';?></td>
+	</tr>
+	<?php 	echo $importes; ?>		
+	<!--<tr>
+		<td height="20" align="left">IMPORTE SOLICITADO:</td>
+		<td height="20" >$ <?php echo $impte_soli.' '.$moneda;?></td>
+	</tr>	
+	<tr>
+		<td height="20" align="left">IMPORTE SOLICITADO en letra:</td>
+		<td height="20" ><?php echo convertir($impte_soli, $moneda)." ".$moneda;?></td>										
+	</tr>	
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>OBSERVACIONES DEL REEMBOLSO:</td>	
+		<td height="20"  colspan="4" style="font-size:12px;" align="justify"><?php echo $observaciones;?></td>
+	</tr>--> 
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr>
+		<td colspan="6" style="color:#003366;font: small-caps 125%/100% serif;"> Favor de realizar el pago a la siguiente cuenta:</td>
+	</tr>		
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr>
+		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>BANCO:</td>
+		<td colspan="4"><?php echo $banco;?></td>										
+	</tr>	
+	<tr>
+		<td  height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>SUCURSAL:</td>
+		<td height="20"colspan="4" ><?php echo $sucursal;?></td>										
+	</tr>	
+	<tr>
+		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>NO. DE CUENTA:</td>
+		<td height="20" colspan="4"><?php echo $no_cuenta;?></td>										
+	</tr>	
+	<tr>
+		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>CLABE:</td>
+		<td height="20" colspan="4"><?php echo $clabe;?></td>										
+	</tr>	
+	<tr>
+		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>NOMBRE DEL BENEFICIARIO:</td>
+		<td height="20" colspan="4"><?php echo $beneficiario;?></td>										
+	</tr>	
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr>
+		<td height="20" colspan="6" style="color:#003366;font: small-caps 125%/100% serif;"> Sin más por el momento quedo a sus órdenes para cualquier duda o aclaración.</td>
+	</tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	<tr><td colspan="5">&nbsp;</td></tr>
+	</table>
+		<hr width='350px' align='center' style="border: 1px solid #00264d">
+		<p align="center" style="font-family:Tahoma, Geneva, sans-serif; text-transform:uppercase;font-size:12px; color:#00264d">
+			Nombre, Firma  y Puesto de la persona que solicita el reembolso. <br>
+			Nombre de la Agencia.
+		</p>
+</body>
+	<meta http-equiv="refresh" content="0; url=solicitud.php?<?php echo $folios?>">
+</html>
