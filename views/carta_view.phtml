@@ -46,7 +46,7 @@
 	</tr>
 	<tr>
 		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>FECHA DE SALIDA:</td>
-		<td height="20"  colspan="4"><?php echo ddmmmaaaa22($fsalida).'.';?></td>
+		<td height="20"  colspan="4"><?php echo ($fsalida).'.';?></td>
 	</tr>
 	<?php 	echo $importes; ?>		
 	<!--<tr>
@@ -101,5 +101,5 @@
 			Nombre de la Agencia.
 		</p>
 </body>
-	<meta http-equiv="refresh" content="0; url=solicitud.php?<?php echo $folios?>">
+	<meta http-equiv="refresh" content="0; url=solicitud_controller.php?<?php echo $id?>">
 </html>

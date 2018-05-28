@@ -1,0 +1,18 @@
+<?
+	?>
+	<h5>Su solicitud de reembolso está incompleta, por favor termine el proceso.</h5>
+	<form method='post' name='forma' id='forma' action='controllers/solicitud_controller.php'>
+		
+		<div class="row">
+			<div class="col-md-4"></div>
+			<input type='hidden' name='expediente' value='<?=$expediente?>'>
+						<input type='hidden' name='nconsolidado' value='<?=$nconsolidado?>'>
+			<div class="col-md-2">
+				<input type='submit' title='CORREGIR DATOS' value='Corregir Datos' id='action' name='action'>
+			</div>
+			<div class="col-md-2">
+				<td colspan='4' align='center'><input type='submit' value='Subir Carta' id='action' name='action'></td>
+			</div>
+		</div>
+		
+		</form>

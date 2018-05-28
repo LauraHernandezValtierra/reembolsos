@@ -15,6 +15,15 @@ function decode_($string){
  	return $_GET;
 }
 
+function info($tipo){
+			if($tipo == 'A'){
+		alert('¡ATENCIÓN!\nLa solicitud de su reembolso debe ser impresa en hoja membretada de la agencia que lo solicita.');
+			}
+			else if ($tipo == 'D'){
+		alert('¡ATENCIÓN!\nLa solicitud de su reembolso debe ser impresa en hoja blanca.');				
+			}
+	}
+
 
     
 function unidad($numuero){

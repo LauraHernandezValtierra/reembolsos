@@ -13,13 +13,15 @@ require_once 'core/AyudaVistas.php';
 	if(isset($_GET['expe']) && isset($_GET['id'])){
 				$cad=strtoupper($_GET['id']);
 				$c=explode('%', $cad);
-				$cid_expediente	= strtoupper($_GET['expe']);
+				$expediente	= strtoupper($_GET['expe']);
 				$nconsolidado	= $c[0];
+				//include('controllers/reembolsos_controller.php');
+				//if (isset($datos)) {
 		$per=new reembolsos_model();
-		$datos=$per->consulta_reembolso($cid_expediente, $nconsolidado);
+		$datos=$per->consulta_reembolso($expediente, $nconsolidado);
 	 		if (isset($datos)) {
 	 			$cancelado		= $datos['cancelado'];		
-					$cid_expediente	= $datos['cid_expediente'];
+					$expediente	= $datos['cid_expediente'];
 					$cid_cliente	= $datos['cid_cliente'];
 					$cliente		= $datos['ncliente'];
 					$nconsolidado	= $datos['nconsolidado'];
@@ -61,13 +63,13 @@ require_once 'core/AyudaVistas.php';
 					if($cancelado=='1'){
 						//Llamada a la vista
 						require_once("views/cancelado_view.phtml");
+
 					}else if($estatus=='A' &&  $archivo == 'S'){
 
 						require_once("views/completo_view.phtml");
 					}else{
-
-						//
-						require_once("controllers/importes_controller.php");
+						require_once("views/head_view.phtml");
+						require_once("controllers/conceptos_controller.php");
 						require_once("controllers/fiscales_controller.php");
 
 					}
@@ -77,7 +79,9 @@ require_once 'core/AyudaVistas.php';
 				//Llamada a la vista
 				require_once("views/denegado_view.phtml");
 			}
-		}else{
+			
+		}
+		else{
 			//Llamada a la vista
 				require_once("views/denegado_view.phtml");
 			}

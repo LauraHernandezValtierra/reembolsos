@@ -21,9 +21,9 @@ $up=new reembolsos_model();
 					$data=$up->updateReembolsoA($expediente, $nconsolidado, $correo, $banco, $sucursal, $cuenta, $clabe, $Beneficiario, $proc, $estatus, $archivo,$fproceso, $observacion);
 					if($data){
 						$id		= "expe=".$expediente.'&id='.$nconsolidado;
-						require_once('../controllers/generaCarta_controller.php');
+						header('Location:../controllers/generaCarta_controller.php?'.$id.'');
 					}else{
-						require_once('../controllers/generaCarta_controller.php');
+						require_once('../views/error_view.phtml');
 					}
 					
 				}elseif($tcliente=='D'){
@@ -32,7 +32,7 @@ $up=new reembolsos_model();
 						$id		= "expe=".$expediente.'&id='.$nconsolidado;
 						header('Location:../controllers/generaCarta_controller.php?'.$id.'');
 					}else{
-						require_once('../controllers/generaCarta_controller.php');
+						require_once('../views/error_view.phtml');
 					}
 				}
 

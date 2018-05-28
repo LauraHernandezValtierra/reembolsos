@@ -6,5 +6,12 @@
 				$clabe 			=  htmlspecialchars(trim(strtoupper($_POST['Clabe'])));
 				$Beneficiario 	=  htmlspecialchars(trim(strtoupper($_POST['Beneficiario'])));
 				$observacion	=  htmlspecialchars(trim(strtoupper($_POST['Observaciones'])));
+
+			
+				if($tcliente	== 'D'){
+				$uploadDir 			= "../ine";
+				$inputFileNam 		= trim($cid_cliente);
+				$pdf = require_once('../funciones/upload_files.php');
 				
+			}
 				require_once("../views/confirmarDatos_view.phtml");

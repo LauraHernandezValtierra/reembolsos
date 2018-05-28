@@ -2,11 +2,9 @@
 require_once("../models/reembolsos_model.php");
 require_once("../funciones/funciones.php");
 require_once("../db/db.php");
-$cid_expediente=$_POST['cid_expediente'];
-$nconsolidado=$_POST['nconsolidado'];
 
 $per=new reembolsos_model();
-		$datos=$per->consulta_reembolso($cid_expediente, $nconsolidado);
+		$datos=$per->consulta_reembolso($expediente, $nconsolidado);
 	 		if (isset($datos)) {
 	 			$cancelado		= $datos['cancelado'];		
 					$cid_expediente	= $datos['cid_expediente'];
@@ -43,11 +41,28 @@ $per=new reembolsos_model();
 					$tcliente		= $datos['tcliente'];
 					$n_fiscales		= $datos['n_fiscales'];
 					$id_rmbo		= $datos['id_rmbo'];
+					$observaciones	= $datos['n_observaciones'];
+					$banco			= $datos['n_banco'];
+					$sucursal		= $datos['n_sucursal'];
+					$no_cuenta		= $datos['n_cuenta'];
+					$beneficiario	= $datos['n_beneficiario'];
+					if($beneficiario == ''){
+						$beneficiario = $cliente;
+					}                       
+					$clabe			= $datos['n_clabe'];
+					$mail			= $datos['n_mail'];
+					$solicitud		= $datos['cid_solicitud'];
 
-				
-					
+					$bg	= "style='background:#0077b3;color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'";
+					$bg2 = "style='background:#173a6a;color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'";
+
+					$id		= "expe=".$expediente.'&id='.$nconsolidado;
+					$liga			= "expe=".$expediente."&id=".$nconsolidado;
+					$liga_mail		= "expe=".$expediente."&id=".$nconsolidado."&mail=1";
 			
 
+}else{
+
 }
-echo "hola2";
+
 ?>

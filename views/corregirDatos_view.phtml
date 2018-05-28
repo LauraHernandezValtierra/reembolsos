@@ -1,5 +1,5 @@
-<p align="center">Ingrese los datos para solicitar el Reembolso</p>
-<form method='post' name='forma' id='forma' action='controllers/solicitud_controller.php' enctype="multipart/form-data">
+
+<form method='post' name='forma' id='forma' action='solicitud_controller.php' enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-md-6">
 				<table class="table">
@@ -50,23 +50,23 @@
 					</tr>
 					<tr>
 						<td>Banco:</td>
-						<td><input type="text" name="banco" class=" input-sm" placeholder="Banco" value="" required="required"></td>
+						<td><input type="text" name="banco" class=" input-sm" placeholder="Banco" value="<?=$banco?>" required="required"></td>
 					</tr>
 					<tr>
 						<td>Sucursal:</td>
-						<td><input type="text" name="Sucursal" class="input-sm" placeholder="Sucursal" value=""></td>
+						<td><input type="text" name="Sucursal" class="input-sm" placeholder="Sucursal" value="<?=$sucursal?>"></td>
 					</tr>
 					<tr>
 						<td>No de Cuenta:</td>
-						<td><input type="number" name="Cuenta" class=" input-sm" placeholder="No de Cuenta" value="" required="required"></td>
+						<td><input type="number" name="Cuenta" class=" input-sm" placeholder="No de Cuenta" value="<?=$no_cuenta?>" required="required"></td>
 					</tr>
 					<tr>
 						<td>Clabe:</td>
-						<td><input type="text" name="Clabe" class=" input-sm" placeholder="Clabe" value="" required="required" minlength='18' pattern='.{18,}' maxlength='18' id='clabe' ></td>
+						<td><input type="text" name="Clabe" class=" input-sm" placeholder="Clabe" value="<?=$clabe?>" required="required" minlength='18' pattern='.{18,}' maxlength='18' id='clabe' ></td>
 					</tr>
 					<tr>
 						<td>Beneficiario:</td>
-						<td><input type="text" name="Beneficiario" class=" input-sm" placeholder="Beneficiario" value="" required="required"></td>
+						<td><input type="text" name="Beneficiario" class=" input-sm" placeholder="Beneficiario" value="<?=$beneficiario?>" required="required"></td>
 					</tr>
 					<tr>
 						<td>Correo de Contacto:</td>
@@ -75,19 +75,17 @@
 					
 						<?php
 						if($tcliente=='D'){
-							?><tr>
+							echo "<tr>
 							<td>Identificación Oficial:</td>
-								<td><input type='file' name='archivo[]' required title='Ingresar unicamente archivo PDF (PASAPORTE, INE, CÉDULA PROFESIONAL, ETC.)'>
-								</td>
-							</tr>
-							<?php
+								<td><input type='file' name='archivo[]' id='archivo[]' required title='Ingresar unicamente archivo PDF (PASAPORTE, INE, CÉDULA PROFESIONAL, ETC.)'></td>
+							</tr>";
 							 
 						}
 						?>
 						
 					<tr>
 						<td>Observaciones:</td>
-						<td><textarea class="form-control" name="Observaciones" rows="2" id="comment"></textarea></td>
+						<td><textarea class="form-control" name="Observaciones" rows="2" id="comment"><?=$observaciones?></textarea></td>
 					</tr>
 				</table>
 			</div>

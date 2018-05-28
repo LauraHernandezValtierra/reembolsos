@@ -6,8 +6,13 @@
 		elseif($fiscales!='' || $n_fiscales!=''){ //CON DATOS FISCALES
 			$credencial="";
 			
+				if($proc == 'S' && $estatus == 'D' && $archivo == 'N'){
+					require_once("views/procesoPendiente1_view.phtml");
+				}
+				else{
+					require_once("views/datosReembolso_view.phtml");
+				}
 				
-				require_once("views/datosReembolso_view.phtml");
 			
 }
 			

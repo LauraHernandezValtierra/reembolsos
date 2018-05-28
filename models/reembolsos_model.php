@@ -74,5 +74,22 @@ class reembolsos_model{
                     return FALSE;
                 }
     }
+
+    public function updateSolicitud($expediente, $nconsolidado, $estatus, $archivo, $fproceso){
+        $update="UPDATE  reembolsos_web SET
+             estatus = '".$estatus."',
+             archivo = '".$archivo."',
+             fproceso       ='".$fproceso."'
+            
+             WHERE 
+             cid_expediente = '".$expediente."' and
+             nconsolidado = '".$nconsolidado."';";
+            if ($this->db->query($update)) {
+                
+                     return TRUE;
+                }else{
+                    return FALSE;
+                }
+    }
 }
 ?>
