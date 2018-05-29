@@ -52,6 +52,8 @@ $per=new reembolsos_model();
 					$clabe			= $datos['n_clabe'];
 					$mail			= $datos['n_mail'];
 					$solicitud		= $datos['cid_solicitud'];
+					$nom_empresa	= $datos['nom_empresa'];
+					$fecha			=trim(strchr($datos['fproceso']," ",true));
 
 					$bg	= "style='background:#0077b3;color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'";
 					$bg2 = "style='background:#173a6a;color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'";

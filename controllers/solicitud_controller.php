@@ -59,6 +59,8 @@ require_once("../db/db.php");
 		if(isset($_GET['mail'])){
 			$expediente	= strtoupper($_GET['expe']);
 			$nconsolidado	= $_GET['id'];
+			include('../controllers/reembolsos_controller.php');
+			require_once("../controllers/conceptos_controller.php");
 			require_once('../controllers/correo_controller.php');
 		}
 		else{

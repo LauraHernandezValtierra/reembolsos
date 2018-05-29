@@ -1,12 +1,13 @@
 <?php 
-function generaPapeleta($cid_expediente,$nconsolidado,$cid_solicitud,$concepto){
+function generaPapeleta($expediente,$nconsolidado,$cid_solicitud,$concepto){
 # Cargamos la librería dompdf.
-require_once $_SERVER['DOCUMENT_ROOT'].'/php/dompdf/dompdf_config.inc.php';
-	include('php/conversor.php');
+//require_once $_SERVER['DOCUMENT_ROOT'].'/php/dompdf/dompdf_config.inc.php';
+	require_once ('../dompdf/autoload.inc.php');
+	
  
  
  $SQL			= "SELECT * FROM reembolsos_web		
-			WHERE cid_expediente = '".$cid_expediente."' AND nconsolidado = '".$nconsolidado."' AND cid_solicitud='".			$cid_solicitud."'";	
+			WHERE cid_expediente = '".$expediente."' AND nconsolidado = '".$nconsolidado."' AND cid_solicitud='".			$solicitud."'";	
 				
 				$result 		= mysqli_query($conx, $SQL);
 				$row 			= mysqli_fetch_assoc($result);
