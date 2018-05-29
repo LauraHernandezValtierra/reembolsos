@@ -10,7 +10,8 @@
 					require_once("views/procesoPendiente1_view.phtml");
 				}
 				else{
-					require_once("views/datosReembolso_view.phtml");
+					require_once("controllers/datosReembolso_controller.php");
+
 				}
 				
 			

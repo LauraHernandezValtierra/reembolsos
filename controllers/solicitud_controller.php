@@ -46,7 +46,8 @@ require_once("../db/db.php");
 
 		}
 		elseif($action == 'ENVIAR'){
-				include('guardafiscal.php');
+			include('../controllers/reembolsos_controller.php');
+				require_once('../controllers/guardaFiscales_controller.php');
 		}
 		elseif($action == 'Cargar Carta'){
 				include('cartaSube.php');

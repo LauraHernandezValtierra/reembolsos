@@ -1,36 +1,24 @@
 <?php 
-function generaPapeleta($expediente,$nconsolidado,$cid_solicitud,$concepto){
+function generaPapeleta($expediente,$nconsolidado,$solicitud,$concepto){
 # Cargamos la librería dompdf.
-//require_once $_SERVER['DOCUMENT_ROOT'].'/php/dompdf/dompdf_config.inc.php';
-	require_once ('../dompdf/autoload.inc.php');
-	
+require_once $_SERVER['DOCUMENT_ROOT'].'/php/dompdf/dompdf_config.inc.php';
+	//require_once ('../dompdf/autoload.inc.php');
+
+	include('../controllers/reembolsos_controller.php');
  
  
- $SQL			= "SELECT * FROM reembolsos_web		
-			WHERE cid_expediente = '".$expediente."' AND nconsolidado = '".$nconsolidado."' AND cid_solicitud='".			$solicitud."'";	
-				
-				$result 		= mysqli_query($conx, $SQL);
-				$row 			= mysqli_fetch_assoc($result);
-				$cid_expediente	= $row['cid_expediente'];
-				$cid_cliente	= $row['cid_cliente'];
-				$nconsolidado	= $row['nconsolidado'];
-				$pax_principal	= $row['pax_principal'];
-				$paquete		= $row['cdestpack'];
-				$fsalida		= $row['fsalida'];
-				$impte_soli		= $row['impte_soli'];
-				$tc				= $row['tc'];
-				$moneda			= $row['moneda'];
-				$ejecutivo		= $row['ejecutivo'];
-				$observaciones	= $row['observaciones'];
-				$proc			= $row['proc'];
-				$estatus		= $row['estatus'];
-				$archivo		= $row['archivo'];
-				$fproceso		= $row['fproceso'];
-				$hora			= strstr($fproceso,' ');
-				$hora			= substr($hora,0,-3);
-				$fproceso		= strstr($fproceso,' ',true);
-				$fiscales		= $row['fiscales'];
+
 				$impte_letras	= convertir($impte_soli,$moneda);
+
+				
+				switch($tcliente){
+					case 'A':
+						$tventa	= 'AGENCIA';
+					break;
+					case 'D':
+						$tventa	= 'DIRECTO';	
+					break;
+				}
 # Contenido HTML del documento que queremos generar en PDF.
 $html= "
 <html>
@@ -83,11 +71,11 @@ border-bottom:hidden;
 	</tr>
 	<tr>
 		<td width='18%'  align='right' height='19' class='fijos'>SOLICITUD:</td>
-		<td width='15%' align='left' class='variantes'>".$cid_solicitud."</td>
+		<td width='15%' align='left' class='variantes'>".$solicitud."</td>
 		<td width='6%' align='right' class='fijos'>CONCEPTO:</td>
 		<td width='29%' align='left' class='variantes'>".$concepto."</td>
 		<td width='8%' align='right' class='fijos'>EXPEDIENTE:</td>
-		<td width='24%' align='left' class='variantes'>".$cid_expediente."</td>				
+		<td width='24%' align='left' class='variantes'>".$expediente."</td>				
 	</tr>
 	<tr>
 		<td class='fijos' align='right'>DOCTO. SOPORTE:</td>
@@ -105,7 +93,7 @@ border-bottom:hidden;
 	</tr>	
 	<tr>
 		<td width='18%'  align='right' height='15' class='fijos'>VENTAS:</td>
-		<td width='15%' align='left' class='variantes'>".$ejec."</td>
+		<td width='15%' align='left' class='variantes'>".$ejecutivo."</td>
 		<td width='6%' align='right' class='fijos'>SALIDA:</td>
 		<td width='29%' align='left' class='variantes'>".$fsalida."</td>
 		<td width='8%' align='right' class='fijos'>T.C.C:</td>
@@ -113,20 +101,20 @@ border-bottom:hidden;
 	</tr>
 	<tr>
 		<td width='18%'  align='right' height='15' class='fijos'>CLIENTE:</td>
-		<td align='left' class='variantes' colspan='2'>".$cliente."</td>
+		<td align='left' class='variantes' colspan='2'>".$cid_cliente."</td>
 		<td align='right' class='fijos'>TIPO DE VENTA:</td>
 		<td align='left' colspan='2' class='variantes'>".$tventa."</td>				
 	</tr>	
 	<tr>
 		<td width='18%' height='19'  align='right' class='fijos'>PAX:</td>
-		<td align='left' class='variantes' colspan='2'>".$pax."</td>
+		<td align='left' class='variantes' colspan='2'>".$pax_principal."</td>
 		<td width='29%' align='right' class='fijos'>CONTACTO:</td>
 		<td align='left' colspan='2' class='variantes'>".$contacto."</td>				
 	</tr>			
 	<tr>
 		<td width='18%'  align='right' height='19' class='fijos'>PROGRAMA:</td>
-		<td align='left' class='variantes' colspan='2'>".$programa."</td>
-		<td align='center' colspan='3' class='variantes'>".$ncliente."</td>
+		<td align='left' class='variantes' colspan='2'>".$paquete."</td>
+		<td align='center' colspan='3' class='variantes'>".$cliente."</td>
 	</tr>
 	<tr>
 		<td height='16' colspan='6' align='left' style='border-top:1px solid' >&nbsp;&nbsp;&nbsp;&nbsp;<span class='titulos' >INFORMACION FISCAL DEL CLIENTE</span></td>
@@ -182,7 +170,7 @@ border-bottom:hidden;
 		<td height='15' align='right' class='fijos'>BANCO:</td>
 		<td align='left' class='variantes'>".$banco."</td>
 		<td align='right' class='fijos'>CUENTA:</td>
-		<td align='left' class='variantes'>".$cuenta."</td>
+		<td align='left' class='variantes'>".$no_cuenta."</td>
 		<td align='right' class='fijos'>SUCURSAL:</td>
 		<td align='left' class='variantes'>".$sucursal."</td>		
 	</tr>														
@@ -206,7 +194,7 @@ $dompdf->load_html($codigo);
 ini_set("memory_limit","32M");
 $dompdf->render();
 $pdf = $dompdf->output();
-file_put_contents("solicitudes/".$cid_solicitud.".pdf", $pdf);
+file_put_contents("solicitudes/".$solicitud.".pdf", $pdf);
 //file_put_contents("solicitudes/pruueba_b.pdf", $pdf);
 }
 ?>

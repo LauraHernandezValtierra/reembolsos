@@ -91,5 +91,20 @@ class reembolsos_model{
                     return FALSE;
                 }
     }
+
+    public function updateFiscales($expediente, $nconsolidado, $fiscales){
+         $update="UPDATE  reembolsos_web SET
+             fiscales = '".$fiscales."',
+             n_fiscales = '".$fiscales."'
+             WHERE 
+             cid_expediente = '".$expediente."' and
+             nconsolidado = '".$nconsolidado."';";
+            if ($this->db->query($update)) {
+                
+                     return TRUE;
+                }else{
+                    return FALSE;
+                }
+    }
 }
 ?>

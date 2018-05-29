@@ -53,6 +53,7 @@ $per=new reembolsos_model();
 					$mail			= $datos['n_mail'];
 					$solicitud		= $datos['cid_solicitud'];
 					$nom_empresa	= $datos['nom_empresa'];
+					$contacto		= $datos['contacto'];
 					$fecha			=trim(strchr($datos['fproceso']," ",true));
 
 					$bg	= "style='background:#0077b3;color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 10px 0px 0px 10px;padding: 3px 3px;'";
@@ -61,10 +62,27 @@ $per=new reembolsos_model();
 					$id		= "expe=".$expediente.'&id='.$nconsolidado;
 					$liga			= "expe=".$expediente."&id=".$nconsolidado;
 					$liga_mail		= "expe=".$expediente."&id=".$nconsolidado."&mail=1";
+
+					if ($fiscales!=''){
+					$dfiscales		= $fiscales;
+					}
+					else{
+						$dfiscales		= $n_fiscales;
+					}
+
+					$datosfiscales		=explode('§', $dfiscales);
+					$rfiscal		=$dfiscales[0];
+					$domicilio		=$dfiscales[1];
+					$colonia		=$dfiscales[2];
+					$municipio		=$dfiscales[3];
+					$estado			=$dfiscales[4];
+					$cp 			=$dfiscales[5];
+					$rfc 			=$dfiscales[6];
+					
 			
 
 }else{
-
+		require_once("views/denegado_view.phtml");
 }
 
 ?>
