@@ -150,7 +150,7 @@ $datos2="	<tr>
 							</tbody>
 						</table>";
 
-		correo($destino, $asunto, $mensaje);
+		//correo($destino, $asunto, $mensaje);
 
 $correo_ejecutivo	= "<table width='70%' height='389' border='0'>
 	<tr>
@@ -192,10 +192,10 @@ $correo_ejecutivo	= "<table width='70%' height='389' border='0'>
 $asunto_ejecutivo	= 'SOLICITUD DE REEMBOLSO CONCLUIDA';
 		
 		include ('../funciones/mail2.php');
-		correo_2($mail_e, $asunto_ejecutivo, $correo_ejecutivo);
+		//correo_2($mail_e, $asunto_ejecutivo, $correo_ejecutivo);
 	$data=$up->updateSolicitud($expediente, $nconsolidado, $estatus, $archivo, $fproceso);
 	if($data){
-		generaPapeleta($expediente,$nconsolidado,$solicitud,$concepto);
+		//generaPapeleta($expediente,$nconsolidado,$solicitud,$concepto);
 		require_once('../views/solicitudCompletada_view.phtml');
 					
 	}else{

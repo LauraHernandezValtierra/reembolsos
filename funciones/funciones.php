@@ -21,6 +21,14 @@ function decode_($string){
 	}
 	
 }
+function encode_this($string) 
+{
+	$string 	= utf8_encode($string);
+	$control 	= "qwerty"; //defino la llave para encriptar la cadena, cambiarla por la que deseamos usar
+	$string 	= $control.$string.$control; //concateno la llave para encriptar la cadena
+	$string 	= base64_encode($string);//codifico la cadena
+	return($string);
+} 
 
 function decode1($string){
 	$cad = explode("?",$string); 
