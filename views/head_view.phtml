@@ -13,6 +13,33 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 		<script src="jsf/funciones.js"></script>
 		<script src="../jsf/funciones.js"></script>
+<script type="text/javascript">
+	function showselect(str){
+		var xmlhttp; 
+		if (str=="")
+		 {
+		 document.getElementById("txtHint").innerHTML="";
+		return;
+		 }
+		if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+		 }
+		else
+		 {// code for IE6, IE5
+		 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		document.getElementById("cmunicipios").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","../funciones/municipios.php?c="+str,true);
+	xmlhttp.send();
+</script>
+		
 
 	</head>
 	<body onLoad="cambiaClase()">

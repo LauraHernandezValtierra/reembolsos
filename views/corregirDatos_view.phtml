@@ -1,4 +1,13 @@
-
+<div class="row">
+					<div class="col-md-12 textr">
+						<h5 class="textr">Para cualquier duda o aclaración, favor de comunicarse a: reembolsos@megatravel.com.mx</h5>
+						
+					</div>
+					<div class="col-md-10 col-md-offset-2 " align="center">
+						<h5>Bienvenido</h5>
+						<p>Este reembolso fue solicitado el <?=dMY($fproceso)?></p>
+					</div>
+				</div>
 <form method='post' name='forma' id='forma' action='solicitud_controller.php' enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-md-6">
@@ -21,7 +30,7 @@
 					</tr>
 					<tr>
 						<td>Fecha de Salida:</td>
-						<td><?=$fsalida?></td>
+						<td><?=dMY($fsalida)?></td>
 					</tr>
 					<tr>
 						<td>Tipo de Cambio:</td>
@@ -29,11 +38,11 @@
 					</tr>
 					<tr>
 						<td>Cantidad en USD:</td>
-						<td><?=$comision_usd?></td>
+						<td><?=number_format($comision_usd,2)?></td>
 					</tr>
 					<tr>
 						<td>Importe Solicitado:</td>
-						<td><?=$comision_mxn?></td>
+						<td><?=number_format($comision_mxn,2)?></td>
 					</tr>
 					<tr>
 						<td>Importe en letra:</td>

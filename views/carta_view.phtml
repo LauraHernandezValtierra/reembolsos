@@ -16,15 +16,15 @@
 	<tr><td colspan="5">&nbsp;</td></tr>
 	<tr>
 		<td width="28%" ></td>
-		<td align="right" colspan="5" style="font: small-caps 125%/100% serif;"><?php echo $fecha; ?></td>
+		<td align="right" colspan="5" style="font: small-caps 125%/100% serif;"><?= dMY($fecha) ?></td>
 	</tr>
 	<tr><td colspan="5">&nbsp;</td></tr>
 	<tr>
-		<td colspan="6" style="font: small-caps 125%/100% serif;"> Atención: <?php echo $ejecutivo; ?></td>
+		<td colspan="6" style="font: small-caps 125%/100% serif;"> Atención: <?=$ejecutivo ?></td>
 	</tr>
 	<tr>
             <!--<td colspan="6" style="font: small-caps 125%/100% serif;"> Mega Travel Operadora, S.A de C.V </td> 27-02--18 cambio en nombre de empresa -->
-            <td colspan="6" style="font: small-caps 125%/100% serif;"><?php echo $nom_empresa; ?></td>
+            <td colspan="6" style="font: small-caps 125%/100% serif;"><?= $nom_empresa?></td>
 	</tr>
 	<tr><td colspan="5">&nbsp;</td></tr>
 	<tr><td colspan="5">&nbsp;</td></tr>
@@ -34,7 +34,7 @@
 	<tr><td>&nbsp;</td></tr>
 	<tr>
 		<td align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>EXPEDIENTE:</td>
-		<td width="72%" height="20" colspan='4' ><?php echo $cid_expediente;?></td>
+		<td width="72%" height="20" colspan='4' ><?= $cid_expediente?></td>
 	</tr>
 	<tr>
 		<td height="20"  align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>NOMBRE DE PAX PRINCIPAL:</td>
@@ -46,7 +46,7 @@
 	</tr>
 	<tr>
 		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>FECHA DE SALIDA:</td>
-		<td height="20"  colspan="4"><?php echo ($fsalida).'.';?></td>
+		<td height="20"  colspan="4"><?= dMY($fsalida).'.';?></td>
 	</tr>
 	<?php 	echo $importes; ?>		
 	<!--<tr>

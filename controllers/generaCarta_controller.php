@@ -2,6 +2,7 @@
 require_once("../funciones/funciones.php");
 require_once("../db/db.php");
 require_once("../models/reembolsos_model.php");
+require_once("../funciones/fecha.php");
 
  set_time_limit ( 720 );
 decode_($_SERVER["REQUEST_URI"]);//funciones/funciones.php

@@ -16,7 +16,7 @@ $up=new reembolsos_model();
 	$rfc			= htmlspecialchars(trim(strtoupper($_POST['rfc']))); 
 	$vtelefono		= htmlspecialchars(trim(strtoupper($_POST['vtelefono'])));
 	$cestado		= htmlspecialchars(trim(strtoupper($_POST['cestado'])));
-	$observ			= htmlspecialchars(trim(strtoupper($_POST['observ'])));
+	$observ			= htmlspecialchars(trim(strtoupper($_POST['Observaciones'])));
 
 	$fiscales		= $vrazon.'§'.$vdomicilio.'§'.$vcolonia.'§'.$cmunicipio.'§'.$cestado.'§'.$vcp.'§'.$rfc.'§'.$vtelefono;
 

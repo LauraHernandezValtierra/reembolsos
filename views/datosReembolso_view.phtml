@@ -31,7 +31,7 @@
 					</tr>
 					<tr>
 						<td>Fecha de Salida:</td>
-						<td><?=$fsalida?></td>
+						<td><?=dMY($fsalida)?></td>
 					</tr>
 					<tr>
 						<td>Tipo de Cambio:</td>
@@ -39,11 +39,11 @@
 					</tr>
 					<tr>
 						<td>Cantidad en USD:</td>
-						<td><?=$comision_usd?></td>
+						<td><?=number_format($comision_usd,2)?></td>
 					</tr>
 					<tr>
 						<td>Importe Solicitado:</td>
-						<td><?=$comision_mxn?></td>
+						<td><?=number_format($comision_mxn,2)?></td>
 					</tr>
 					<tr>
 						<td>Importe en letra:</td>

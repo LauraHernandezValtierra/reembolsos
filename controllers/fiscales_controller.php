@@ -1,6 +1,10 @@
 <?php
+
 		if($fiscales=='' && $tcliente == 'A' && $n_fiscales == ''){ //SIN DATOS FISCALES
 			$main="";
+			require_once("funciones/estado.php");
+			require_once("funciones/municipios.php");
+			
 			require_once("views/datosFiscales_view.phtml");
 		}
 		elseif($fiscales!='' || $n_fiscales!=''){ //CON DATOS FISCALES

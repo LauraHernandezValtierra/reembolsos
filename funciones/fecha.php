@@ -53,6 +53,14 @@ function ddmmmaaaa($fech){
 	$fech = trim(strchr($fech,"-"),"-");
 	return $fech."-".substr(strtoupper($arrayMeses[$mes-1]), 0, 3)."-".$anio;
 }
+function dMY($fech){
+	global $arrayMeses;
+	$anio = trim(strchr($fech,"-",true));
+	$fech = trim(strchr($fech,"-"),"-");
+	$mes = trim(strchr($fech,"-",true));
+	$fech = trim(strchr($fech,"-"),"-");
+	return $fech." DE ".substr(strtoupper($arrayMeses[$mes-1]), 0, 12)." DEL ".$anio;
+}
 
 function restaDias($fech,$resta){
 //recibe la variable en formato año-mes-dia, el numero de dias a restar y devuelve el año-mes-dia

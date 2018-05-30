@@ -1,4 +1,5 @@
 <?php
+set_time_limit ( 720 );
 	switch($tipo){
 		case 1:
 				$concepto	= 'COMISIÓN DE AGENCIA';
