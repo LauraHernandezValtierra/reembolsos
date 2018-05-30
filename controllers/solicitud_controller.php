@@ -27,6 +27,7 @@ require_once("../funciones/fecha.php");
 				require_once("../controllers/confirmarDatos_controller.php");
 			}
 			elseif($seccion == 2){
+
 				require_once("../controllers/guardarSolicitud_controller.php");
 			
 					
@@ -47,12 +48,15 @@ require_once("../funciones/fecha.php");
 
 		}
 		elseif($action == 'ENVIAR'){
+			
 			include('../controllers/reembolsos_controller.php');
 				require_once('../controllers/guardaFiscales_controller.php');
 		}
 		elseif($action == 'Cargar Carta'){
 				include('cartaSube.php');
 		}
+	}else{
+		require_once("../views/denegado_view.phtml");
 	}
 
 }else{
@@ -62,17 +66,28 @@ require_once("../funciones/fecha.php");
 			$expediente	= strtoupper($_GET['expe']);
 			$nconsolidado	= $_GET['id'];
 			include('../controllers/reembolsos_controller.php');
+			if($estatus=='A' &&  $archivo == 'S'){
+				require_once("../views/completo_view.phtml");
+			}else{
+			
 			require_once("../controllers/conceptos_controller.php");
 			require_once('../controllers/correo_controller.php');
+			}
 		}
 		else{
 			$expediente	= strtoupper($_GET['expe']);
 			$nconsolidado	= $_GET['id'];
 
 			include('../controllers/reembolsos_controller.php');
-			require_once('../controllers/cargarCarta_controller.php');
+			if($estatus=='A' &&  $archivo == 'S'){
+				require_once("../views/completo_view.phtml");
+			}else{
+				require_once('../controllers/cargarCarta_controller.php');
+			}
+			
 		}
 	}else{
+
 
 		require_once("../views/denegado_view.phtml");
 	}

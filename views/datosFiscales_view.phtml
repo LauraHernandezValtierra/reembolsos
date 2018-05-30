@@ -1,3 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="cache-control" content="no-cache" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
+		<title>Solicitud de Reembolsos</title>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+		<script src="../js/funciones.js"></script>
+		<script src="jsf/funciones.js"></script>
+<script>
+function showUser(str) {
+	if (str=="") {
+		document.getElementById("cmunicipio").innerHTML="";
+		return;
+	} 
+		if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else { // code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+		xmlhttp.onreadystatechange=function() {
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("cmunicipio").innerHTML=xmlhttp.responseText;
+			}
+	}
+	
+	xmlhttp.open("GET","funciones/municipios.php?edo="+str,true);
+	xmlhttp.send();
+}
+</script>
+<script type="text/javascript">
+	
+			function cambiaClase(){
+				//alert('lol');
+				if(document.getElementById('validado').checked==true){
+					//alert('im here');
+						document.getElementById('aceptaD').className = 'divcolor2';
+				}
+				else{
+					//alert('and here too');
+					document.getElementById('aceptaD').className = 'divcolor1';
+				}
+			}
+</script>
+		
+	</head>		
+<body>
+<header>
+		<?php// include('php/header.php'); ?>
+</header>
+<div id="main">
 <div class="row">
 					<div class="col-md-12">
 						<h5 class="textr">Para cualquier duda o aclaración, favor de comunicarse a: reembolsos@megatravel.com.mx</h5>
@@ -11,7 +65,7 @@
 <form name='forma' id='forma' method='post' action='controllers/solicitud_controller.php'  enctype='multipart/form-data' >
 <h1 align='center'>DATOS FISCALES</h1>
 <br><br>
-<span style='background: #A31100; font-size:14px; color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 7px 5px 5px 7px;padding: 3px 5px;'>
+<span style='background: #3C75D9; font-size:14px; color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 7px 5px 5px 7px;padding: 3px 5px;'>
 	Su registro no cuenta con datos fiscales cargados, para continuar con la solicitud debe llenar el siguiente formulario y adjuntar su cédula fiscal en formato PDF.
 </span>
 <br><br>
@@ -19,27 +73,29 @@
 	<div class="col-md-6">
 		<table class="table">
 			<tr>
-				<td>RAZÓN FISCAL:</td>
+				<th>RAZÓN FISCAL:</th>
 				<td><input type='text' autocomplete='off' name='vrazon' required style='width:300px'></td>
 			</tr>
 			<tr>
-				<td>DOMICILIO:</td>
+				<th>DOMICILIO:</th>
 				<td><input type='text autocomplete='off' ' name='vdomicilio' required style='width:300px'></td>
 			</tr>
 			<tr>
-				<td>COLONIA:</td>
+				<th>COLONIA:</th>
 				<td>
 					<input type='text' autocomplete='off'  name='vcolonia'  required style='width:300px'>
 				</td>
 			</tr>
 			<tr>
-				<td>ESTADO:</td>
+				<th>ESTADO:</th>
 				<td>
-					<select  id='cestado' name='cestado'> 
+					<select  id='cestado' name='cestado' onchange="showUser(this.value)" required="required"> 
 						<option value="0">Seleccionar Estado</option>
+						
 						<?php foreach($estados as $estado=>$estados) {
 							$estados= $estados['estado'];
 							?>
+
 								<option value="<?=$estados?>"><?=$estados?></option>
 							<?php
 							}
@@ -50,11 +106,11 @@
 				</td>
 			</tr>
 			<tr>
-				<td>CÉDULA FISCAL:</td>
+				<th>CÉDULA FISCAL:</th>
 				<td><input type='file' name='archivo[]' id='archivo[]' required title='Ingresar unicamente archivo PDF'></td>
 			</tr>
 			<tr>
-				<td>OBSERVACIONES:</td>
+				<th>OBSERVACIONES:</th>
 				<td colspan='2' rowspan='5'>
 					<textarea class="form-control" name="Observaciones" rows="2" id="comment"><?=$observaciones?></textarea>
 				</td>
@@ -66,27 +122,27 @@
 	<div class="col-md-6">
 			<table class="table">
 			<tr>
-				<td>RFC:</td>
+				<th>RFC:</th>
 				<td>
 				<input type='text' autocomplete='off'  name='rfc' style='width:150px' required minlength='12' maxlength='13' pattern='^[a-zA-Z]{3,4}[\d]{6}[\D|\d]{3}?$' title='Ingrese el RFC con Homoclave (XXXX######XXX)' ></td>
 			</tr>
 			<tr>
-				<td>C.P:</td>
+				<th>C.P:</th>
 				<td>
 					<input type='text' autocomplete='off'  name='vcp' required style='width:150px' minlength='5' pattern='.{5,}' maxlength='5'  onKeyPress='soloNumeros()'>
 				</td>
 			</tr>
 			<tr>
-				<td>TELÉFONO:</td>
+				<th>TELÉFONO:</th>
 				<td>
 					<input type='text'  autocomplete='off' name='vtelefono' required style='width:150px' onKeyPress='soloNumeros()'>
 				</td>
 			</tr>
 			<tr>
-				<td>MUNICIPIO:</td>
+				<th>MUNICIPIO:</th>
 				<td>
-					<select name='cmunicipio' id='cmunicipio' >
-						<?=$html?>
+					<select name='cmunicipio' id='cmunicipio' required="required" >
+						
 					</select>
 				</td>
 			</tr>
@@ -106,7 +162,7 @@
 		<div class="row">
 			<div class="col-md-5"></div>
 			<div class="col-md-4">
-				<td colspan='4' align='center'><input type='submit' value='ENVIAR' title='ENVIAR DATOS FISCALES' name='action' id='action'></td>
+				<td colspan='4' align='center'><input type='submit' value='ENVIAR' title='ENVIAR DATOS FISCALES' name='action' id='action' class="btn btn-primary"></td>
 			</div>
 		</div>
 		
@@ -119,15 +175,3 @@
 			
 
 </form>
-<script type="text/javascript">
-	$(document).ready(function(){
-				$("#cestado").change(function () {
-					$("#cestado option:selected").each(function () {
-						edo = $(this).val();
-						$.post("funciones/municipios.php", { edo: edo }, function(data){
-							$("#cmunicipio").html(data);
-						});            
-					});
-				})
-			});
-</script>

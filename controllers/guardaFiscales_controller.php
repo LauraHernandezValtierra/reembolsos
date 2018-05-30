@@ -26,9 +26,9 @@ $up=new reembolsos_model();
 						$uploadDir 			= "../rfc";
 						$inputFileNam 		= trim($cid_cliente);
 						$pdf = include('../funciones/upload_files.php');
-						$id		= "expe=".$expediente.'&id='.$nconsolidado;
-
-						echo "<meta http-equiv='refresh' content='0; url=principal_controller.php?$id>";
+						//$id		= "expe=".$expediente.'&id='.$nconsolidado;
+						
+						echo "<meta http-equiv='refresh' content='0; url=../?$id'>";
 			}
 					else{
 						

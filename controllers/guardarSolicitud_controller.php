@@ -16,10 +16,12 @@ $up=new reembolsos_model();
 				$archivo		= 'N';
 				$identificacion	= 'S';
 				$fproceso		= date('Y-m-d H:i:s');
-
+				
 				if($tcliente=='A'){
+					
 					$data=$up->updateReembolsoA($expediente, $nconsolidado, $correo, $banco, $sucursal, $cuenta, $clabe, $Beneficiario, $proc, $estatus, $archivo,$fproceso, $observacion);
 					if($data){
+						
 						$id		= "expe=".$expediente.'&id='.$nconsolidado;
 						header('Location:../controllers/generaCarta_controller.php?'.$id.'');
 					}else{

@@ -3,16 +3,34 @@
 function decode_($string){
 	$cad = explode("?",$string); 
 	//separo la url desde el ?
+	$n=count($cad);
+	if ($n>1) {
+		$string = $cad[1]; //capturo la url desde el separador ? en adelante
+		if(isset($cad[1]))//confirmo que tenga datos
+		 {
+			$cad_get = explode("&",$string); //separo la url por &
+		
+		foreach($cad_get as $value)
+		{
+			$val_get = explode("=",$value); //asigno los valosres al GET
+			$_GET[$val_get[0]]=utf8_decode($val_get[1]);
+		}
+	 	return $_GET;
+		
+		}
+	}
+	
+}
+
+function decode1($string){
+	$cad = explode("?",$string); 
+	//separo la url desde el ?
 	$string = $cad[1];
 	 //capturo la url desde el separador ? en adelante 
-	$cad_get = explode("&",$string); //separo la url por &
+	$cad_get = explode("=",$string); //separo la url por &
+	$edo=$cad_get[1];
 	
-	foreach($cad_get as $value)
-	{
-		$val_get = explode("=",$value); //asigno los valosres al GET
-		$_GET[$val_get[0]]=utf8_decode($val_get[1]);
-	}
- 	return $_GET;
+ 	return $edo;
 }
 
 function info($tipo){

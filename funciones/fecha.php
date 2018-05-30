@@ -70,6 +70,15 @@ function restaDias($fech,$resta){
 	$fech = trim(strchr($fech,"-"),"-");
 	return date('Y-m-d', mktime(0,0,0,$mes,$fech-$resta,$anio));
 }
+
+	function ddmmmaaaa24($fech){
+		global $arrayMeses;
+		$anio = trim(strchr($fech,"-",true));
+		$fech = trim(strchr($fech,"-"),"-");
+		$mes = trim(strchr($fech,"-",true));
+		$fech = trim(strchr($fech,"-"),"-");
+		return  $fech." DE ".strtoupper($arrayMeses[$mes-1])." DEL ".$anio;
+	}
  
 
 $dias = array("Domingo","Lunes","Martes","Mi&eacute;rcoles","Jueves","Viernes","S&aacute;bado");

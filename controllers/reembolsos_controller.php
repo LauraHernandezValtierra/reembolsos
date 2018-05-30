@@ -63,26 +63,13 @@ $per=new reembolsos_model();
 					$liga			= "expe=".$expediente."&id=".$nconsolidado;
 					$liga_mail		= "expe=".$expediente."&id=".$nconsolidado."&mail=1";
 
-					if ($fiscales!=''){
-					$dfiscales		= $fiscales;
-					}
-					else{
-						$dfiscales		= $n_fiscales;
-					}
 
-					$datosfiscales		=explode('§', $dfiscales);
-					$rfiscal		=$dfiscales[0];
-					$domicilio		=$dfiscales[1];
-					$colonia		=$dfiscales[2];
-					$municipio		=$dfiscales[3];
-					$estado			=$dfiscales[4];
-					$cp 			=$dfiscales[5];
-					$rfc 			=$dfiscales[6];
 					
 			
 
 }else{
-		require_once("views/denegado_view.phtml");
+		require_once("../views/denegado_view.phtml");
+		exit;
 }
 
 ?>
