@@ -48,20 +48,23 @@
 		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>FECHA DE SALIDA:</td>
 		<td height="20"  colspan="4"><?= dMY($fsalida).'.';?></td>
 	</tr>
-	<?php 	echo $importes; ?>		
-	<!--<tr>
-		<td height="20" align="left">IMPORTE SOLICITADO:</td>
-		<td height="20" >$ <?php echo $impte_soli.' '.$moneda;?></td>
-	</tr>	
+	<?php 	echo $tipocambio; echo $importes ?>
 	<tr>
-		<td height="20" align="left">IMPORTE SOLICITADO en letra:</td>
-		<td height="20" ><?php echo convertir($impte_soli, $moneda)." ".$moneda;?></td>										
-	</tr>	
-	<tr><td>&nbsp;</td></tr>
-	<tr>
-		<td height="20" align="left" style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>OBSERVACIONES DEL REEMBOLSO:</td>	
-		<td height="20"  colspan="4" style="font-size:12px;" align="justify"><?php echo $observaciones;?></td>
-	</tr>--> 
+					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>IMPORTE SOLICITADO: </td>
+					<td>
+						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+							<tr>
+								<td height='20' >$<?=$imp_sol?> <?=$mon?></td>
+							</tr>	
+						</table>
+					</td>		
+				</tr>
+				<tr>
+					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>IMPORTE EN LETRA: </td>
+					<td height='20' colspan='5' ><?=$imp_let?> <?=$mon?> </td>
+				</tr>
+
+	 
 	<tr><td colspan="5">&nbsp;</td></tr>
 	<tr>
 		<td colspan="6" style="color:#003366;font: small-caps 125%/100% serif;"> Favor de realizar el pago a la siguiente cuenta:</td>
