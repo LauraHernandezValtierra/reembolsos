@@ -194,7 +194,7 @@ $dompdf->load_html($codigo);
 ini_set("memory_limit","32M");
 $dompdf->render();
 $pdf = $dompdf->output();
-file_put_contents("solicitudes/".$solicitud.".pdf", $pdf);
+file_put_contents("../solicitudes/".$solicitud.".pdf", $pdf);
 //file_put_contents("solicitudes/pruueba_b.pdf", $pdf);
 }
 ?>
