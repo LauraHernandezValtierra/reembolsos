@@ -43,13 +43,15 @@ function decode1($string){
 
 function info($tipo){
 			if($tipo == 'A'){
-		alert('¡ATENCIÓN!\nLa solicitud de su reembolso debe ser impresa en hoja membretada de la agencia que lo solicita.');
+				echo " <script> alert('¡ATENCIÓN!\nLa solicitud de su reembolso debe ser impresa en hoja membretada de la agencia que lo solicita.'); </script>
+				";
+		
 			}
 			else if ($tipo == 'D'){
-		alert('¡ATENCIÓN!\nLa solicitud de su reembolso debe ser impresa en hoja blanca.');				
+				echo "<scrip>alert('¡ATENCIÓN!\nLa solicitud de su reembolso debe ser impresa en hoja blanca.');	</script> ";
+					
 			}
 	}
-
 
     
 function unidad($numuero){

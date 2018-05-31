@@ -4,7 +4,7 @@ class municipios_model{
     private $municipios;
  
     public function __construct(){
-        $this->db=Conectar::conexion();
+        $this->db=Conectar2::conexion();
         $this->muni=array();
     }
 

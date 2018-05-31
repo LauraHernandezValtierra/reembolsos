@@ -16,6 +16,7 @@ decode_($_SERVER["REQUEST_URI"]);//funciones/funciones.php
 				$nconsolidado	= $c[0];
 				include('../controllers/reembolsos_controller.php');
 				if (isset($datos)) {
+					
 					if ($fiscales!=''){
 					$dfiscales		= $fiscales;
 					}

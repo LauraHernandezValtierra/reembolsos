@@ -1,6 +1,6 @@
 <?php 
 //include($_SERVER['DOCUMENT_ROOT'].'/php/webserver.php');	
-require_once("../db/db.php");
+require_once("../db/db2.php");
 	require_once('../models/municipios_model.php');
 	
 	$edos=$_GET['edo'];

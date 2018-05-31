@@ -1,6 +1,6 @@
 	<?
 	?>
-	<form method='post' name='forma' id='forma' action='solicitud_controller.php'>
+	<form method='post' name='forma' id='forma' action='solicitud_controller.php' onSubmit='info(<?=$tcliente?>)'>
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
@@ -50,6 +50,7 @@
 						<input type='hidden' name='Clabe' value='<?=$clabe?>'>
 						<input type='hidden' name='Correo' value='<?=$correo?>'>
 						<input type='hidden' name='Observaciones' value='<?=$observacion?>'>
+						<input type='hidden' id="tcliente" name='tcliente' value='<?=$tcliente?>'>
 				</div>
 			</div>
 			
@@ -58,11 +59,12 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-2">
-				<input type='button' onClick='javascript:history.back()' style='cursor:pointer;' title='CORREGIR DATOS' value='Corregir' class="btn-outline-primary">
+				<input type='button' onClick='javascript:history.back()' style='cursor:pointer;' title='CORREGIR DATOS' value='Corregir' class="btn btn-outline-primary">
 			</div>
 			<div class="col-md-2">
-				<td colspan='4' align='center'><input type='submit' value='Imprimir Solicitud' title='Imprimir Solicitud' name='action' id='action' class="btn-outline-primary"></td>
+				<td colspan='4' align='center'><input onclick='confirma()' type='submit' value='Imprimir Solicitud' title='Imprimir Solicitud' name='action' id='action' class="btn btn-outline-primary"></td>
 			</div>
+			<br><br><br>
 		</div>
 		
 		</form>

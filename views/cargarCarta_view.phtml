@@ -1,6 +1,7 @@
-<form id='form1' name='form1' method='POST' action='solicitud_controller.php' enctype='multipart/form-data' onSubmit='info("<?=$tcliente?>")'>
+<form id='form1' name='form1' method='POST' action='solicitud_controller.php' enctype='multipart/form-data' onSubmit='info(<?=$tcliente?>)'>
 <input type='hidden' name='expediente' value='<?=$expediente?>'>
 <input type='hidden' name='nconsolidado' value='<?=$nconsolidado?>'>
+<input type='hidden' id="tcliente" name='tcliente' value='<?=$tcliente?>'>
 
 <p style='font-size:20px' align='center'>Para finalizar el proceso es necesario que suba la solicitud que imprimió en el paso anterior, con su firma.<br><br>	<STRONG>Formato permitido: PDF </strong> &nbsp;&nbsp;&nbsp;<img title='Extensión permitida: PDF' src='https://lax.megatravel.com.mx/reembolsos/pdf.png'></p>
 	<div class="row">
@@ -10,9 +11,12 @@
 			<input type='file'  title='Extensión permitida: PDF' name='archivo[]' id='archivo[]'>
 		</div>
 		<div class="col-md-3"><input type='submit' value='Subir Archivo' title='Extensión permitida: PDF' style='cursor:pointer;' id='action' name='action' class="btn btn-outline-primary"></div>
-		<div class="col-md-3">
-			<a href='../controllers/generaCarta_controller.php?<?=$id?>'><img src="../imagenes/print.png"> Descargar Carta</a>
+		<div class="col-md-3" >
+			<a onclick='confirma()' href='../controllers/generaCarta_controller.php?<?=$id?>'><img src="../imagenes/print.png" > Descargar Carta</a>
+			<br><br>
+			
 		</div>
 		
 	</div>
+	
 </form>

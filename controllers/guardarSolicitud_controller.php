@@ -29,6 +29,7 @@ $up=new reembolsos_model();
 					}
 					
 				}elseif($tcliente=='D'){
+
 					$data=$up->updateReembolsoD($expediente, $nconsolidado, $correo, $banco, $sucursal, $cuenta, $clabe, $Beneficiario, $identificacion, $proc, $estatus, $archivo,$fproceso, $observacion);
 					if($data){
 						$id		= "expe=".$expediente.'&id='.$nconsolidado;

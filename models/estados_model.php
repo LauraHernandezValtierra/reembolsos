@@ -4,7 +4,7 @@ class estados_model{
     private $estados;
  
     public function __construct(){
-        $this->db=Conectar::conexion();
+        $this->db=Conectar2::conexion();
         $this->estados=array();
     }
 
