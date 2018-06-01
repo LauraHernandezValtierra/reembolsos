@@ -4,6 +4,7 @@ require_once("models/reembolsos_model.php");
 require_once("funciones/funciones.php");
 require_once("funciones/fecha.php");
 require_once 'core/AyudaVistas.php';
+require_once("views/head_view.phtml");
         $helper=new AyudaVistas();
 
 
@@ -89,5 +90,5 @@ require_once 'core/AyudaVistas.php';
 
 
 
-
+require_once("views/footer_view.phtml");	
 ?>

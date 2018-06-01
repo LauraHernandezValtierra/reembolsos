@@ -4,7 +4,7 @@ require_once("../models/reembolsos_model.php");
 require_once("../funciones/funciones.php");
 require_once("../db/db.php");
 require_once("../funciones/fecha.php");
-
+require_once("../views/head_view.phtml");
 
 
 	if($_POST){
@@ -34,7 +34,7 @@ require_once("../funciones/fecha.php");
 			}
 		}
 		elseif($action=='Corregir Datos'){
-
+			require_once("../controllers/importes_controller.php");
 			require_once("../controllers/conceptos_controller.php");
 				require_once("../views/head_view.phtml");
 				require_once("../views/corregirDatos_view.phtml");
@@ -93,5 +93,5 @@ require_once("../funciones/fecha.php");
 	}
 }
 
-	
+require_once("../views/footer_view.phtml");	
 ?>

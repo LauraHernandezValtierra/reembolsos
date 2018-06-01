@@ -1,16 +1,43 @@
 td{
 	font-size: 14px;
+	
+	border-radius: 7px 5px 5px 7px;
+	padding: 3px 5px;
 }
 
 input{
 	font-size: 14px;
 }
+table{
+	background-color: white;
+
+}
+
+body{
+	
+	background: url('http://lax.megatravel.com.mx/expo/img/logo_mt.png') center no-repeat;
+	background-attachment: fixed;
+  	background-position:  50% 50%;
+  	background-color: rgba(214, 244, 253, 0.25)
+}
 
 .divcolor1{
-	background: #F5EE8C;
+	background: #F5EE8C;/*amarillo*/
+	color: #C1A529;
+
 }
 .divcolor2{
-	background: #B9DC8C;
+	background: #B9DC8C;/*verde*/
+	color: #229954;
+}
+
+.fondodiv{
+	margin-top: 30px;
+	border-top:  #3C75D9;
+	/*background-color: rgba(255,255,255,.5);blanco transparente*/ 
+	background-color:rgba(121, 121, 121, 0.075);/*gris transparente*/
+	border-radius: 7px 5px 5px 7px;
+	padding: 3px 5px;
 }
 
 .textr{
@@ -20,4 +47,34 @@ input{
 .trcolor{
 	background: #3C75D9;
 	color: white;
+	font-size:14px;
+	text-shadow: #081E82 1px 1px;
+	
+	padding: 3px 5px;
 }
+
+.fondonav{
+	background-color: #0029A0;
+	border-radius: 7px 5px 5px 7px;
+	color: white;
+
+}
+footer{
+	text-align: center;
+	
+   position: relative;
+            /* Altura total del footer en px con valor negativo */
+            margin-top: -50px;
+            /* Altura del footer en px. Se han restado los 5px del margen
+               superior mas los 5px del margen inferior
+            */
+            height: 50px;
+            padding:5px 0px;
+            clear: both;
+   
+  
+}
+ .define {
+           
+            margin:0 auto;
+        }

@@ -8,53 +8,49 @@
 						<p>Este reembolso fue solicitado el <?=dMY($fproceso)?></p>
 					</div>
 				</div>
-<form method='post' name='forma' id='forma' action='solicitud_controller.php' enctype="multipart/form-data">
-		<div class="row">
+<form method='post' name='forma' id='forma' action='solicitud_controller.php' enctype="multipart/form-data" >
+		<div class="row fondodiv">
 			<div class="col-md-6">
-				<table class="table">
+				<table class="table table-borderless">
 					<tr>
-						<td>Expediente:</td>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>EXPEDIENTE:</td>
 						<td><?=$expediente?></td>
 					</tr>
 					<tr>
-						<td>Motivo del Reembolso:</td>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>MOTIVO DEL REEMBOLSO:</td>
 						<td><?=$concepto?></td>
 					</tr>
 					<tr>
-						<td>Pasajero Principal:</td>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>PASAJERO PRINCIPAL:</td>
 						<td><?=$pax_principal?></td>
 					</tr>
 					<tr>
-						<td>Paquete:</td>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>PAQUETE:</td>
 						<td><?=$paquete?></td>
 					</tr>
 					<tr>
-						<td>Fecha de Salida:</td>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>FECHADE SALIDA:</td>
 						<td><?=dMY($fsalida)?></td>
 					</tr>
 					<tr>
-						<td>Tipo de Cambio:</td>
-						<td><?=$tc?></td>
+						<?php echo $tipocambio; echo $importes ?>
+					<tr>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>IMPORTE SOLICITADO: </td>
+						<td>
+						$<?=$imp_sol?> <?=$mon?>	
+						</td>		
 					</tr>
 					<tr>
-						<td>Cantidad en USD:</td>
-						<td><?=number_format($comision_usd,2)?></td>
-					</tr>
-					<tr>
-						<td>Importe Solicitado:</td>
-						<td><?=number_format($comision_mxn,2)?></td>
-					</tr>
-					<tr>
-						<td>Importe en letra:</td>
-						<td><?=convertir($impte_soli,$moneda)?></td>
+						<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>IMPORTE EN LETRA: </td>
+						<td><?=$imp_let?> <?=$mon?> </td>
 					</tr>
 				</table>
 			</div>
 			
 			<div class="col-md-6">
-				<table class="table">
+				<table class="table table-borderless">
 					<tr class="trcolor">
-						<th colspan="2">Datos modificables bajo la responsabilidad de quien esté solicitando el reembolso.</th>
+						<td colspan="2">Datos modificables bajo la responsabilidad de quien esté solicitando el reembolso.</td>
 						
 					</tr>
 					<tr>
@@ -67,7 +63,7 @@
 					</tr>
 					<tr>
 						<td>No de Cuenta:</td>
-						<td><input type="number" name="Cuenta" class=" input-sm" placeholder="No de Cuenta" value="<?=$no_cuenta?>" required="required"></td>
+						<td><input type="text" name="Cuenta" class=" input-sm" placeholder="No de Cuenta" value="<?=$no_cuenta?>" onkeypress="return valida(event)" required="required"></td>
 					</tr>
 					<tr>
 						<td>Clabe:</td>
@@ -100,10 +96,10 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				<div id='aceptaD' class="divcolor1" ><input type='checkbox'  name='validado' onchange='cambiaClase()' id='validado' required="required" title='Debe aceptar las politicas para continuar' ><label for='validado' style='cursor:pointer;'>
-						Acepto...<a href='https://www.megatravel.com.mx/info/politica-de-privacidad.php' title='aviso' target='_blank'>Aviso de privacidad</a></label>
+			<div class="col-md-4 col-sm-2"></div>
+			<div class="col-md-4 col-sm-8">
+				<div id='aceptaD' class="divcolor1"  align="center"><input type='checkbox'  name='validado' onchange='cambiaClase()' id='validado' required="required" title='Debe aceptar las politicas para continuar' ><label for='validado' style='cursor:pointer;'>  
+						  Acepto...<a href='https://www.megatravel.com.mx/info/politica-de-privacidad.php' title='aviso' target='_blank'>Aviso de privacidad</a></label>
 						<input type="hidden" name="action" value="Enviar Datos">
 						<input type='hidden' name='secc' value='1'>
 						<input type='hidden' name='expediente' value='<?=$expediente?>'>
@@ -115,7 +111,7 @@
 		<br>
 		<div class="row">
 			<div class="col-md-5"></div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-12">
 				<td colspan='4' align='center'><input type='submit' value='Enviar Datos' title='Enviar Datos' name='action' id='action' class="btn btn-outline-primary"></td>
 			</div>
 		</div>

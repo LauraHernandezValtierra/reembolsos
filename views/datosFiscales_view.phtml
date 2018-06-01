@@ -65,13 +65,13 @@ function showUser(str) {
 <form name='forma' id='forma' method='post' action='controllers/solicitud_controller.php'  enctype='multipart/form-data' >
 <h1 align='center'>DATOS FISCALES</h1>
 <br><br>
-<span style='background: #3C75D9; font-size:14px; color: #FFF;text-shadow: #081E82 1px 1px;border-radius: 7px 5px 5px 7px;padding: 3px 5px;'>
+<span class="trcolor">
 	Su registro no cuenta con datos fiscales cargados, para continuar con la solicitud debe llenar el siguiente formulario y adjuntar su cédula fiscal en formato PDF.
 </span>
 <br><br>
-<div class="row">
+<div class="row fondodiv">
 	<div class="col-md-6">
-		<table class="table">
+		<table class="table table-borderless">
 			<tr>
 				<th>RAZÓN FISCAL:</th>
 				<td><input type='text' autocomplete='off' name='vrazon' required style='width:300px'></td>
@@ -120,7 +120,7 @@ function showUser(str) {
 		</table>
 	</div>
 	<div class="col-md-6">
-			<table class="table">
+			<table class="table table-borderless">
 			<tr>
 				<th>RFC:</th>
 				<td>
@@ -153,7 +153,7 @@ function showUser(str) {
 <div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
-				<div id='aceptaD' class="divcolor1" ><input  name='validado' id='validado' type='checkbox' onchange='cambiaClase()' required title='Debe aceptar las políticas para continuar' ><label for='validado' style='cursor:pointer;'><strong>Acepto que los datos ingresados son correctos y verídicos</strong></label>
+				<div id='aceptaD' class="divcolor1" align="center"><input  name='validado' id='validado' type='checkbox' onchange='cambiaClase()' required title='Debe aceptar las políticas para continuar' ><label for='validado' style='cursor:pointer;'><strong>Acepto que los datos ingresados son correctos y verídicos</strong></label>
 				</div>
 			</div>
 			

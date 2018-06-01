@@ -6,7 +6,7 @@ $tipocambio="<tr>
 					<td>
 						<table width='40%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
-								<td height='20' >$".$tc." MXN</td>
+								<td height='30' >$".$tc." MXN</td>
 							</tr>
 						</table>
 					</td>			
@@ -22,7 +22,7 @@ $tipocambio="<tr>
 				<tr>
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>CANTIDAD EN USD: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($comision_usd,2)." USD</td>									
 							</tr>	
@@ -59,7 +59,7 @@ $tipocambio="<tr>
 				<tr>
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>CANTIDAD EN USD: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($excedente_usd,2)." USD</td>									
 							</tr>	
@@ -128,7 +128,7 @@ $tipocambio="<tr>
 				<tr>
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>COMISIÓN AGENCIA: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($comision_mxn,2)." ".$moneda."</td>
 							</tr>
@@ -138,7 +138,7 @@ $tipocambio="<tr>
 				<tr>
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>EXCEDENTE PAGO: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($excedente_mxn,2)." ".$moneda."</td>
 							</tr>
@@ -155,9 +155,9 @@ $tipocambio="<tr>
 				<tr>
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>COMISIÓN AGENCIA: </td>
 					<td width='100%'>
-						<table width='25%' style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%' style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
-								<td height='20' width='30%' >".number_format($comision_usd,2)." ".$moneda."</td>
+								<td height='20' width='70%' >".number_format($comision_usd,2)." ".$moneda."</td>
 							</tr>
 						</table>
 					</td>		
@@ -165,9 +165,9 @@ $tipocambio="<tr>
 				<tr>
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>EXCEDENTE PAGO: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
-								<td  height='20' width='30%' >".number_format($excedente_usd,2)." ".$moneda."</td>
+								<td  height='20' width='70%' >".number_format($excedente_usd,2)." ".$moneda."</td>
 							</tr>
 						</table>
 					</td>		
@@ -186,7 +186,7 @@ $tipocambio="<tr>
 				
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>CANTIDAD EN USD: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($serv_usd,2)." USD</td>									
 							</tr>	
@@ -221,7 +221,7 @@ $tipocambio="<tr>
 				
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>CANTIDAD EN USD: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($serv_usd,2)." USD</td>									
 							</tr>	
@@ -255,7 +255,7 @@ $tipocambio="<tr>
 			$importes	="
 					<td height='20' align='left' style='font-weight:bolder;font-family:Tahoma, Geneva, sans-serif;'>CANTIDAD EN USD: </td>
 					<td>
-						<table width='25%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
+						<table width='70%'  style='font-family:Tahoma, Geneva, sans-serif;font-size:12px; color:#00264d;'>
 							<tr>
 								<td height='20' >".number_format($serv_usd,2)." USD</td>									
 							</tr>	

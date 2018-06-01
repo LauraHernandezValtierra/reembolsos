@@ -40,12 +40,35 @@
 					
 				}
 	</script>
+<script>
+function valida(e){
+    tecla = (document.all) ? e.keyCode : e.which;
+
+    //Tecla de retroceso para borrar, siempre la permite
+    if (tecla==8){
+        return true;
+    }
+        
+    // Patron de entrada, en este caso solo acepta numeros
+    patron =/[0-9]/;
+    tecla_final = String.fromCharCode(tecla);
+    return patron.test(tecla_final);
+}
 </script>
 		
 
 	</head>
 	<body onLoad="cambiaClase()">
 		<header>
+			<div class="container">
+				<div class="navbar-header fondonav">
+					
+					<div class="col-md-4">
+						<img src="http://lax.megatravel.com.mx/expo/img/logo_mt.png" width="100">
+					</div>
+					
+				</div>
+			</div>
 			<!--<span class="logo">
 			<img alt="logo" src="https://<?php echo $_SERVER['SERVER_NAME']?>/img/logo-mega-travel-blue.jpg" align="left" />
 		</span>
@@ -60,5 +83,5 @@
 		
 
 		<section>
-			<div class="container">
+			<div class="container fondodiv">
 				
