@@ -63,7 +63,7 @@ $per=new reembolsos_model();
 					$liga			= "expe=".$expediente."&id=".$nconsolidado;
 					$liga_mail		= "expe=".$expediente."&id=".$nconsolidado."&mail=1";
 
-
+				
 					
 			
 

@@ -1,12 +1,30 @@
 <?php 
 function generaPapeleta($expediente,$nconsolidado,$solicitud,$concepto){
 # Cargamos la librería dompdf.
-require_once $_SERVER['DOCUMENT_ROOT'].'/php/dompdf/dompdf_config.inc.php';
-	//require_once ('../dompdf/autoload.inc.php');
+//require_once $_SERVER['DOCUMENT_ROOT'].'/php/dompdf/dompdf_config.inc.php';
+
+// include autoloader
+	require_once ('../dompdf/autoload.inc.php');
 
 	include('../controllers/reembolsos_controller.php');
  
- 
+ 	if ($fiscales!=''){
+					$dfiscales		= $fiscales;
+				}
+				else if($n_fiscales!=''){
+					$dfiscales		= $n_fiscales;
+				}
+				
+				$datosf		= explode( '§', $dfiscales ) ;
+				
+				$rfiscal	= $datosf[0];
+				$domicilio	= $datosf[1];
+				$colonia	= $datosf[2];
+				$municipio	= $datosf[3];
+				$estado		= $datosf[4];
+				$cp			= $datosf[5];
+				$rfc		= $datosf[6];	
+
 
 				$impte_letras	= convertir($impte_soli,$moneda);
 
@@ -187,8 +205,10 @@ $descarga->render();
 $descarga->stream($cid_solicitud.".pdf");*/
 
 
+
+// instantiate and use the dompdf class
 $codigo	= utf8_decode($html);
-$dompdf	= new DOMPDF();
+$dompdf	= new Autoloader();
 $dompdf->set_paper("A4", "portrait");
 $dompdf->load_html($codigo);
 ini_set("memory_limit","32M");
